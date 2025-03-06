@@ -180,9 +180,8 @@
                     </div>
 
                     <div id="receipts-section" style="display: none;">
-                        <h4 class="mt-4 mb-3">영수증</h4>
                         <div id="receipt-images" class="receipt-preview"></div>
-                        <button id="download-all-receipts" class="btn btn-success mt-2">모든 영수증 다운로드</button>
+                        <button id="download-all-receipts" class="btn btn-success mt-2">영수증 다운로드</button>
                     </div>
                 </div>
             </div>
@@ -313,7 +312,7 @@
                 try {
                     console.log('검색 시작:', name, birthdate);
                     // Firestore에서 이름으로 먼저 검색
-                    let query = db.collection("회원가입계약서").where("name", "==", name);
+                    let query = db.collection("Membership").where("name", "==", name);
                     const querySnapshot = await query.get();
 
                     // 결과를 담을 배열
@@ -392,7 +391,7 @@
                                     }
 
                                     if (success) {
-                                        showNotification('모든 영수증을 다운로드했습니다.', 'success');
+                                        showNotification('영수증을 다운로드했습니다.', 'success');
                                     }
                                 };
                             }
@@ -409,7 +408,7 @@
                 } finally {
                     // 로딩 표시 제거
                     searchBtn.disabled = false;
-                    searchBtn.innerHTML = '검색';
+                    searchBtn.innerHTML = '계약서 조회';
                 }
             });
 
